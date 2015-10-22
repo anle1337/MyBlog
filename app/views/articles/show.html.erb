@@ -1,0 +1,16 @@
+<h1 class = "heading "> Show Post </h1>
+
+<%= render 'layouts/flash_messages' %>
+
+
+
+<h1> <%= @article.title %> </h1>
+<p> <%= time_tag @article.created_at %> <br> <%=time_ago_in_words(@article.created_at)%> ago </p>
+
+
+<p class = "article_body"> <%= @article.body%> </p>
+
+
+<%= link_to "Back", root_url, class: "tool btn btn-primary" %>
+<%= link_to "Edit", edit_article_path, class: "tool btn btn-primary" %>
+<%= link_to "Delete", article_path, method: :delete, data: {confirm: "are you sure?"}, class: "tool btn btn-primary" %>
