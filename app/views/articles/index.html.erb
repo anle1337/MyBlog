@@ -1,9 +1,13 @@
 <h1 class = "heading"> List of All Articles </h1>
+
+<%= render 'layouts/flash_messages' %>
 	<% @articles.each do |a| %>
 		<div class = "article">
-			<h1> <%= link_to a.title, article_path(a) %> </h1>
-			<p> <%= time_tag a.created_at%> <br> <%=time_ago_in_words(a.created_at)%> ago </p>
-			<p class = "article_body"> <%= a.body%> </p>
+			<div class = "article_title">
+				<h1> <%= link_to a.title, article_path(a) %> </h1>
+				<p> <%= time_tag a.created_at%></p>
+				<p class = "article_body"> <%= a.body%> </p>
+			</div>
 		</div>
 
 	<% end %>

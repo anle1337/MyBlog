@@ -3,9 +3,10 @@
 <%= render 'layouts/flash_messages' %>
 
 
-
+<div class = "article_title">
 <h1> <%= @article.title %> </h1>
-<p> <%= time_tag @article.created_at %> <br> <%=time_ago_in_words(@article.created_at)%> ago </p>
+<p> <%= time_tag @article.created_at %>	 </p>
+</div>
 
 
 <p class = "article_body"> <%= @article.body%> </p>
