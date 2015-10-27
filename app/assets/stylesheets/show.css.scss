@@ -1,0 +1,51 @@
+.comments {
+	border-top: solid 1px #d6dce0;
+	border-bottom: solid 1px #d6dce0;
+}
+
+.comment_btn {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 2px 4px;
+    font-size: 10px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.new_comment > label {
+    font-size: 15px;
+}
+
+
+#comment_name, #comment_body {
+    width: 25%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF)); 
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #f2edf2 25px); 
+    background: -o-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #f2edf2 25px); /* For Opera 11.1 to 12.0 */
+    background: linear-gradient(top, #FFFFFF, #EEEEEE 1px, #f2edf2 25px); /* Standard syntax */
+
+
+    -webkit-box-shadow: 1px 2px 5px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 2px 5px 1px rgba(0,0,0,0.75);
+    box-shadow: 1px 2px 5px 1px rgba(0,0,0,0.75);
+}
+

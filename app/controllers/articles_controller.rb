@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
+		@comment = Comment.new
 	end
 
 	def new
@@ -30,7 +31,7 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 		if @article.update(article_param)
 			redirect_to @article
-			flash[:success] = "Article successfully saved!"
+			flash[:success] = "Article successfully edited!"
 		else
 			render 'edit'
 		end
