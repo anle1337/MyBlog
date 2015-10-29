@@ -1,12 +1,17 @@
-<h1 class = "heading">About Me</h1>
+<div class = "jumbotron">
+	<div class = "container">
+		<h2 class = "heading">About Me</h2>
+		<br>
 
-<div class = "profile_picture">
-	<%= image_tag("about.jpg", alt: "profile picture", class: "img-responsive") %>
+		<div class = "profile_picture">
+			<%= image_tag("about.jpg", alt: "profile picture", class: "img-responsive") %>
+		</div>
+
+		<h3> Hello, My name is An Le. </h3>
+
+		<p> I'm an aspiring Rails Developer and this is one of my projects. A nice blog app that's responsive to different viewports. A toggle button at the top will collapse the menu for you and allow you to read my posts better. </p>
+
+		<p> If you like the way this blog app works, you can grab the code from my github: <%= link_to "https://github.com/Anle90/MyBlog.git", "https://github.com/Anle90/MyBlog.git" %> </p>
+
+	</div>
 </div>
-
-<h3> Hello, My name is An Le. </h3>
-
-<p> I'm an aspiring Rails Developer and this is one of my projects. A nice blog app that's responsive to different viewports. A toggle button at the top will collapse the menu for you and allow you to read my posts better. </p>
-
-<p> If you like the way this blog app works, you can grab the code from my github: <%= link_to "https://github.com/Anle90/MyBlog.git", "https://github.com/Anle90/MyBlog.git" %> </p>
-

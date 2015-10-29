@@ -1,19 +1,18 @@
 <h1 class = "heading"> List of All Articles </h1>
 
-
 	<% @articles.each do |a| %>
-		<div class = "article">
-			<div class = "article_title">
+		<div class = "article">		
 				<h1> <%= link_to a.title, article_path(a) %> </h1>
 				<p> <%= time_tag a.created_at%></p>
 				<p class = "article_body"> <%= a.body%> </p>
 			</div>
-		</div>
+
 
 	<% end %>
 
 
-<%= link_to "Create New Article", new_article_path, class: "tool btn btn-primary" %>
+
+<%= link_to "Create New Article", new_article_path, class: "tool btn btn-primary class" %>
 
 
 
