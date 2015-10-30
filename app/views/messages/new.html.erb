@@ -1,2 +1,55 @@
-<h1>Messages#new</h1>
-<p>Find me in app/views/messages/new.html.erb</p>
+<h1 class = "heading"> Contact Me </h1>
+
+
+<% if flash[:success] %>
+	<div class = "error_explanation">
+		<div class = "alert alert-alert">
+			<%= flash[:success] %>
+		</div>
+	</div>
+<% end %>
+
+
+<% if @message.errors.any? %>
+	<div class = "error_explanation">
+		<div class = "alert alert-danger">
+		 	<p> This form has <%= pluralize(@message.errors.count, "error") %>:</p>
+		</div>
+
+		<ul>
+			<% @message.errors.full_messages.each do |msg| %>
+				<li> <%= msg %> </li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+	
+
+<h3> If you like this blog </h3>
+
+<p> Remember you can always view the code at my github: <%= link_to "https://github.com/Anle90/MyBlog.git", "https://github.com/Anle90/MyBlog.git" %>
+
+<p> Additionally, you can send me an email! Use the form below, or email me at asble@ucdavis.edu. Thanks for checking out my blog! </p>
+
+
+<%= form_for @message, url: contact_path do |message_form| %>
+
+<%= message_form.label :name %> <br>
+<%= message_form.text_field :name %><br>
+
+<%= message_form.label :email %><br>
+<%= message_form.email_field :email %><br>
+
+<%= message_form.label :subject %><br>
+<%= message_form.text_field :subject %><br>
+
+<%= message_form.label "Message" %> <br>
+<%= message_form.text_area :body %>
+
+<br>
+
+<%= message_form.submit "Submit", class: "btn btn-primary lg" %>
+
+<% end %>
+
