@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
 			flash[:success] = "Comment successfully added!"
 			redirect_to article_path(@article)
 		else
-			render 'articles/show'
+			flash[:danger] = @comment.errors.full_messages
+			redirect_to article_path(@article)
 		end
 		
 	end
