@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+
   get '/about', to: 'static_pages#about', as: 'about'
-  get '/contact', to: 'static_pages#contact', as: 'contact'
+  get '/contact', to: 'messages#new', as: 'contact'
+  post 'contact' => 'messages#create'
 
   devise_for :admins
   # The priority is based upon order of creation: first created -> highest priority.

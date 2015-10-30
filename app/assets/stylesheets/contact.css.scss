@@ -1,0 +1,35 @@
+// Place all the styles related to the Messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+#message_name, #message_email, #message_subject{
+    width: 30%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF)); 
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #f2edf2 25px); 
+    background: -o-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #f2edf2 25px); /* For Opera 11.1 to 12.0 */
+    background: linear-gradient(top, #FFFFFF, #EEEEEE 1px, #f2edf2 25px); /* Standard syntax */
+
+
+    -webkit-box-shadow: 1px 2px 5px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 2px 5px 1px rgba(0,0,0,0.75);
+    box-shadow: 1px 2px 5px 1px rgba(0,0,0,0.75);
+}
+#message_body {
+    width: 50%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding-bottom: 100px;
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF)); 
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #f2edf2 25px); 
+    background: -o-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #f2edf2 25px); /* For Opera 11.1 to 12.0 */
+    background: linear-gradient(top, #FFFFFF, #EEEEEE 1px, #f2edf2 25px); /* Standard syntax */
+
+
+    -webkit-box-shadow: 1px 2px 5px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 2px 5px 1px rgba(0,0,0,0.75);
+    box-shadow: 1px 2px 5px 1px rgba(0,0,0,0.75);
+}

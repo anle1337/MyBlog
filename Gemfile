@@ -13,9 +13,15 @@ gem 'sass-rails', '~> 5.0'
 # Bootstrap with sass
 gem 'bootstrap-sass', '3.3.5.1'
 
+
+#font-awesome icons
 gem 'font-awesome-sass', '~>4.4.0'
 
+#user authentication system
 gem 'devise', '3.4.1'
+
+#Keep password and personal information hidden when pushed to repo.
+gem 'figaro'
 
 gem "font-awesome-rails"
 # Use Uglifier as compressor for JavaScript assets

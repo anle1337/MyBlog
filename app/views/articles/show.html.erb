@@ -21,59 +21,55 @@
 
 
 <!--link at bottom of article-->
-<%= link_to "Back", root_url, class: "tool btn btn-primary" %>
-<%= link_to "Edit", edit_article_path(id: @article.id), class: "tool btn btn-primary" %>
-<%= link_to "Delete", article_path(id: @article.id), method: :delete, data: {confirm: "are you sure?"}, class: "tool btn btn-primary" %>
-<br>
+	<div class = "article_buttons">
+		<%= link_to "Back", root_url, class: "tool btn btn-primary" %>
+		<%= link_to "Edit", edit_article_path(id: @article.id), class: "tool btn btn-primary" %>
+		<%= link_to "Delete", article_path(id: @article.id), method: :delete, data: {confirm: "are you sure?"}, class: "tool btn btn-primary" %>
+	</div>
 </div>
 
 
 <!--Comment Error Message-->
+		<% if flash[:danger] != nil %>
+			<div class = "error_explanation" >
+				<div class = "alert alert-danger">	
+					This form contains <%= pluralize(flash[:danger].count, "error") %>:
+				</div>
+			</div>
+				<ul id = "comment_errors">
+					<% flash[:danger].each do |msg| %>
+						<li> <%= msg %> </li>
+					<% end %>	
+				</ul>
+		<% end %>
 
-<% if @comment.errors.any? %>
-	<div class = "error_explanation">
-		<div class = "alert alert-danger">
-			<p>The form contains <%= pluralize(@comment.errors.count, "error")%> : </p> 
-
-		</div>
-	</div>
-	<% @comment.errors.full_messages.each do |msg| %>
-			<ul>
-				<li> <%= msg %></li>
-			</ul>
-	<% end %>
-<% end %>
-
-
+<div class = "add_comment">
+	<h4> Add a comment! </h4>
+</div>
 
 <!--Comment form for particular post-->
 <%= form_for ([@article, @comment]) do |f| %>
 
-<h4> Add a comment! </h4>
+<div class = "comment_form">
+	<%= f.label "Name"%> <br>
+	<%= f.text_field :name, class: 'forms' %>
 
-<%= f.label "Name"%> <br>
-<%= f.text_field :name, class: 'forms' %>
+	<br>
 
-<br>
+	<%= f.label "Comments"%> <br>
+	<%= f.text_area :body, class:  'forms' %>
 
-<%= f.label "Comments"%> <br>
-<%= f.text_area :body, class:  'forms' %>
+	<br> 
 
-<br> 
+	<%= f.submit "Submit", class: 'btn btn-primary'%>
+	<% end %>
 
-<%= f.submit "Submit", class: 'btn btn-primary'%>
-<% end %>
-
-<br>
-
+</div>
 <!--Display all comments for the particular article-->
 <h5>There are <%= pluralize(@article.comments.count, "comment")%>: </h5>
 
 <div class = "comments container-fluid">
 	<% @article.comments.each do |msg| %>
-		<% if msg.id == nil %>
-			<% break %>
-		<% end %>
 		<div class = "col-md-4 col-md-offset-1">
 			<h4> <%= msg.name %> <br></h4>
 			<h7><%= time_ago_in_words(msg.created_at) if msg.created_at%></h7>
