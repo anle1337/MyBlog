@@ -26,8 +26,9 @@
 	<% end %>
 
 
-
-<%= link_to "Create New Article", new_article_path, class: "tool btn btn-primary class" %>
+<% if admin_signed_in? %>
+	<%= link_to "Create New Article", new_article_path, class: "tool btn btn-primary class" %>
+<% end %>
 
 
 
