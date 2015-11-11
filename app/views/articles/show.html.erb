@@ -23,14 +23,16 @@
 <!--link at bottom of article-->
 	<div class = "article_buttons">
 		<%= link_to "Back", root_url, class: "tool btn btn-primary" %>
-		<%= link_to "Edit", edit_article_path(id: @article.id), class: "tool btn btn-primary" %>
-		<%= link_to "Delete", article_path(id: @article.id), method: :delete, data: {confirm: "are you sure?"}, class: "tool btn btn-primary" %>
+		<% if admin_signed_in? %>
+			<%= link_to "Edit", edit_article_path(id: @article.id), class: "tool btn btn-primary" %>
+			<%= link_to "Delete", article_path(id: @article.id), method: :delete, data: {confirm: "are you sure?"}, class: "tool btn btn-primary" %>
+		<% end %>
 	</div>
 </div>
 
 
 <!--Comment Error Message-->
-		<% if flash[:danger] != nil %>
+		<% if flash[:danger] != nil%>
 			<div class = "error_explanation" >
 				<div class = "alert alert-danger">	
 					This form contains <%= pluralize(flash[:danger].count, "error") %>:
@@ -65,21 +67,28 @@
 	<% end %>
 
 </div>
+
 <!--Display all comments for the particular article-->
 <h5>There are <%= pluralize(@article.comments.count, "comment")%>: </h5>
 
 <div class = "comments container-fluid">
 	<% @article.comments.each do |msg| %>
-		<div class = "col-md-4 col-md-offset-1">
-			<h4> <%= msg.name %> <br></h4>
-			<h7><%= time_ago_in_words(msg.created_at) if msg.created_at%></h7>
-			<h5><%= msg.body %></h5>
+		<div class = "row comment_single">
+			<div class = "col-md-4 col-md-offset-1">
+				<h5 class = "comment_user"> <%= msg.name %> </h5>
+				<p class = "small_p"> <%= time_ago_in_words(msg.created_at) %></p>
+				<p><%= msg.body %></p>
+				
 
-			
-			<!--Comment link to delete comment-->
-			<div>
-				<%= link_to 'Delete', [@article, msg], method: :delete, data: { confirm: "are you sure?" }, class: "comment_btn"%>
+
+				
+					<!--Comment link to delete comment if user is signed in-->
+					<% if (user_signed_in? && (current_user.id == msg.user_id)) || admin_signed_in? %>
+						<div>
+							<%= link_to 'Delete', [@article, msg], method: :delete, data: { confirm: "are you sure?" }, class: "comment_btn"%>
+						</div>
+					<% end %>
+			</div>
 		</div>
-	</div>
-</div>
 <% end %>
+</div>

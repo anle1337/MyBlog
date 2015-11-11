@@ -1,5 +1,20 @@
 <h1 class = "heading"> List of All Articles </h1>
 
+	<% if flash[:notice] %>
+		<div class = "error_explanation">
+		 <div class = "alert alert-success">  
+			<%= flash[:notice] %>
+		</div>
+		</div>
+	<% elsif flash[:alert] %>
+		<div class = "error_explanation">
+		 <div class = "alert alert-danger">
+		 	<%= flash[:alert] %>
+	 	</div>
+	 	</div>
+ 	<% end %>
+	
+
 	<% @articles.each do |a| %>
 		<div class = "article">		
 				<h1> <%= link_to a.title, article_path(a) %> </h1>

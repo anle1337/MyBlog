@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  devise_for :people
   get '/about', to: 'static_pages#about', as: 'about'
   get '/contact', to: 'messages#new', as: 'contact'
   post 'contact' => 'messages#create'
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
+3
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

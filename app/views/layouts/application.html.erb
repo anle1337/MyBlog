@@ -38,8 +38,22 @@
             <div class="container-fluid">
 					    <a href="#menu-toggle" class="btn btn-default top-button" id="menu-toggle">Toggle Menu</a>	
                         <ul class = "loginbuttons">
-                            <li><%= link_to "Admin Login", new_admin_session_path, class: "btn btn-default top_button" %>
-                            <li><%= link_to "Sign Out", destroy_admin_session_path, class: "btn btn-default top_button", method: :delete %>
+                        <!-- Show login button if not logged in, and user email if logged in -->
+                            <% if !admin_signed_in? && !user_signed_in? %>
+                                <li><%= link_to "Login", new_user_session_path, class: "btn btn-default top_button" %>
+                            <% elsif admin_signed_in? %>
+                                <li class = "session_person_name"> <%= current_admin.email %> </li>
+                            <% elsif user_signed_in? %>
+                                <li class = "session_person_name"> <%= current_user.email %> </li>
+                            <% end %>
+
+                            <% if admin_signed_in? %>
+                                <li><%= link_to "Sign Out Admin", destroy_admin_session_path, class: "btn btn-default top_button", method: :delete %>
+                            <% elsif user_signed_in? %>
+                                <li><%= link_to "Sign Out User", destroy_user_session_path, class: "btn btn-default top_button", method: :delete %>
+                            <% else %>
+                                <li><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default top_button"%>
+                            <% end %>
                         </ul>
 				</div>	
                 <div class="row">

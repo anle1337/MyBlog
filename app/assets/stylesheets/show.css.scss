@@ -1,6 +1,8 @@
+
+
 .comments {
 	border-top: solid 1px #d6dce0;
-	border-bottom: solid 1px #d6dce0;
+
 }
 
 .comment_btn {
@@ -26,6 +28,12 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.comment_single {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: solid #d6dce0 1px;
 }
 
 
@@ -56,3 +64,4 @@
 .article_buttons {
     margin-top: 20px;
 }
+

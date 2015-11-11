@@ -1,4 +1,8 @@
 class ArticlesController < ApplicationController
+
+before_action :authenticate_person!, except: [:index, :show]
+
+
 	def index
 		@articles = Article.all
 	end
@@ -15,6 +19,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def show
+
 		@article = Article.find(params[:id])
 		@comment = Comment.new
 	end
