@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  devise_for :people
+ 
   get '/about', to: 'static_pages#about', as: 'about'
   get '/contact', to: 'messages#new', as: 'contact'
   post 'contact' => 'messages#create'
 
-  devise_for :admins
+  devise_for :admins, :skip => [:registrations]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
