@@ -19,7 +19,7 @@
 		<div class = "article">		
 				<h1> <%= link_to a.title, article_path(a) %> </h1>
 				<p> <%= time_tag a.created_at%></p>
-				<p class = "article_body"> <%= a.body%> </p>
+				<p class = "article_body"> <%= a.body.truncate_words(40)%> </p>
 			</div>
 
 
